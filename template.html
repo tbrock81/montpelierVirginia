@@ -7,8 +7,6 @@
 <script src="/static/js/vendor/jquery.serializeJSON.min.js" type="text/javascript"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.0/jquery.cookie.min.js" type="text/javascript"></script>
 <script src="/static/vendor/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
-<script src="/static/js/pdf/pdf.js" type="text/javascript"></script>
-
 <!-- Add style sheets -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ol3/3.2.1/ol.css" type="text/css">
 <link rel="stylesheet" href="/static/vendor/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen"/>
@@ -64,35 +62,8 @@ It uses the class="skeleton" to identify the elements that belong to the
 task.
 -->
 
-<div class="row skeleton" id="magicData">
-    <div class="row">
+<div class="row skeleton" id="">
 
-        <div class="form-group">
-                <label class="control-label" for="siteNumber">Site #</label>
-                <input class="form-control" type="text" name="siteNumber" >
-            </div>
-
-            <div class="form-group">
-                <label class="control-label" for="pageNumber">Page #</label>
-                <input class="form-control" type="text" name="pageNumber">
-            </div>
-
-            <div class="form-group">
-                <label class="control-label" for="initials">Initials</label>
-                <input class="form-control" type="text" name="initials" >
-            </div>
-
-            <div class="form-group">
-                <label class="control-label" for="date">Date</label>
-                <input class="form-control" type="text" name="date">
-            </div>
-
-            <div class="form-group">
-                    <label class="control-label" for="deCode">DE Code</label>
-                    <input class="form-control" type="text" name="deCode">
-                </div>
-
-    </div>
     <div class="row">
         <div class="btn-group">
             <button class="btn btn-info btn-xs" data-toggle="modal" data-target="#myModal">
@@ -117,19 +88,52 @@ task.
         </div>
 
         <div class="col-md-6">
-            <div id="montpelierTable" class="handsontable"></div>
-            <div class="comments">
-                <div class="form-group">
-                    <label class="control-label" for="comments">Transcriber's Comments</label>
-                    <textarea class="form-control" rows="5" id="comments" name="comments"
-                              placeholder="Add any comments you have"></textarea>
-                </div>
-            </div>
-            <button class="btn btn-success btn-answer" value='Yes'>
-                Submit your dates
-            </button>
+            <div id="montpelierTable" class="handsontable col-md-12"></div>
         </div>
     </div>
+    <form id="magicData" role="form">
+        <div class="row" id="">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="control-label" for="siteNumber">Site #</label>
+                    <input class="form-control" type="text" name="siteNumber">
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label" for="pageNumber">Page #</label>
+                    <input class="form-control" type="text" name="pageNumber">
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label" for="initials">Initials</label>
+                    <input class="form-control" type="text" name="initials">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="control-label" for="date">Date</label>
+                    <input class="form-control" type="text" name="date">
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label" for="deCode">DE Code</label>
+                    <input class="form-control" type="text" name="deCode">
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="comments">
+                    <div class="form-group">
+                        <label class="control-label" for="comments">Transcriber's Comments</label>
+                    <textarea class="form-control" rows="5" id="comments" name="comments"
+                              placeholder="Add any comments you have"></textarea>
+                    </div>
+                </div>
+                <button class="btn btn-success btn-answer" value='Yes'>
+                    Submit your transcription
+                </button>
+            </div>
+        </div>
+    </form>
     <!-- End of pdf section -->
     <!-- The data entry section using html table -->
     <div class="row">
@@ -161,12 +165,13 @@ task.
                 <h3>Gathering data from the Montpelier excavation logs</h3>
             </div>
 
-             <!-- Step 1 of the tutorial -->
+            <!-- Step 1 of the tutorial -->
             <div id="0" class="modal-body" style="display:none">
                 <h4>Information needed</h4>
                 <p>
                     This project requires your help to capture the data held within the PDF scans. It is a very
-                    straightforward tabulation exercise. Montpelier would like your help to transcribe the following fields:
+                    straightforward tabulation exercise. Montpelier would like your help to transcribe the following
+                    fields:
                 </p>
                 <ol>
                     <li>Site #</li>
@@ -249,8 +254,6 @@ task.
 	});
 
 
-
-
 </script>
 
 <!-- Step through modals -->
@@ -283,6 +286,10 @@ task.
 	}
 	showStep('next');
 	$("#modal").modal('show');
+
+
+
+
 
 </script>
 
@@ -336,7 +343,6 @@ task.
 				stretchH : 'all'
 			};
 			$("#montpelierTable").handsontable(config);
-
 			$('.btn-answer').off('click').on('click', function(evt) {
 				evt.preventDefault();
 				var answer = $(evt.target).attr("value");
@@ -347,13 +353,12 @@ task.
 					var data = handsontable.getData();
 					console.log(data);
 					task.answer.table = data;
-					task.answer.comments = $("#comments").val();
 					console.log(task.answer);
 					pybossa.saveTask(task.id, task.answer).done(function() {
 						$("html, body").animate( {scrollTop : 0 }, "slow");
 						$("#success").fadeIn(500).fadeOut(500);
 						$("#loading").fadeIn(500).fadeOut(500);
-						$('#comments').val('');
+						$('#magicData')[0].reset();
 						deferred.resolve();
 					});
 				} else {
@@ -368,6 +373,7 @@ task.
 		}
 	});
 	pybossa.run('montpelier');
+
 </script>
 
 <style type="text/css">
@@ -375,13 +381,13 @@ task.
     height: 100%;
     }
     #mypdf:-webkit-full-screen {
-    height: 100%;
+    height: 50%;
     }
     #mypdf:-ms-fullscreen {
-    height: 100%;
+    height: 50%;
     }
     #mypdf:full-screen {
-    height: 100%;
+    height: 50%;
     }
     #montpelierTable {
     width: 100%;
@@ -393,4 +399,5 @@ task.
     .btn-group {
     margin-bottom: 0px
     }
+
 </style>
