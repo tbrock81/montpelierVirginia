@@ -1,8 +1,7 @@
-Site catalogue transcription from Magic Mountain
-================================================
+Site catalogue transcription from Montpelier
+============================================
 
-An application for transcription of PDF site catalogue files from excavations at Magic Mountain on behalf of 
-Denver Museum of Nature and Science.
+An application for transcription of PDF site catalogue files from excavations.
 
 This application has four files:
 
@@ -77,17 +76,3 @@ LICENSE
 =======
 
 Please, see the COPYING file.
-
-
-Acknowledgments
-===============
-
-This application is on behalf of the Denver Museum of Nature and Science as part of Michele Koons' work for the 
-Michigan State University Digital Archaeology Institute
-
-![Denver Museum of Nature and Science](https://micropasts-other.s3.amazonaws.com/other/denver-museum-of-nature-and-science.jpg)
-![MSUDAI](https://micropasts-other.s3.amazonaws.com/other/InstituteDigitalArch-Logo-35.png)
-
-
-
-
