@@ -27,7 +27,7 @@ You need to use the PBS command line interface for creating and updating the pro
 ```
 *  Now clone the code to your server and change directory into the folder:
 ```bash
-   $ git clone https://github.com/MicroPasts/egyptExplorationSociety.git applicationName
+   $ git clone https://github.com/MicroPasts/montpelierVirginia.git applicationName
    $ cd applicationName
 ```
 *  Now run:
