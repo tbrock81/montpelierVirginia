@@ -80,60 +80,61 @@ task.
     <div class="row">
         <h4>Please help transcribe the entries:</h4>
     </div>
-    <div class="row">
-        <div class="col-md-6">
-            <div id="mypdf">
-                <iframe id="pdfImage" width="100%" height="600px" class="pdf" src=""></iframe>
-            </div>
-        </div>
 
-        <div class="col-md-6">
-            <div id="montpelierTable" class="handsontable col-md-12"></div>
+    <div class="col-md-12">
+        <div id="mypdf">
+            <iframe id="pdfImage" width="100%" height="200px" class="pdf" src=""></iframe>
         </div>
     </div>
-    <form id="magicData" role="form">
-        <div class="row" id="">
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label class="control-label" for="siteNumber">Site #</label>
-                    <input class="form-control" type="text" name="siteNumber">
-                </div>
+    <div class="row">
 
-                <div class="form-group">
-                    <label class="control-label" for="pageNumber">Page #</label>
-                    <input class="form-control" type="text" name="pageNumber">
-                </div>
+        <div class="col-md-12">
+            <div id="montpelierTable" class="handsontable col-md-12"></div>
+            <form id="magicData" role="form">
+                <div class="row" id="">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label" for="siteNumber">Site #</label>
+                            <input class="form-control" type="text" name="siteNumber">
+                        </div>
 
-                <div class="form-group">
-                    <label class="control-label" for="initials">Initials</label>
-                    <input class="form-control" type="text" name="initials">
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label class="control-label" for="date">Date</label>
-                    <input class="form-control" type="text" name="date">
-                </div>
+                        <div class="form-group">
+                            <label class="control-label" for="pageNumber">Page #</label>
+                            <input class="form-control" type="text" name="pageNumber">
+                        </div>
 
-                <div class="form-group">
-                    <label class="control-label" for="deCode">DE Code</label>
-                    <input class="form-control" type="text" name="deCode">
-                </div>
-            </div>
-            <div class="col-md-12">
-                <div class="comments">
-                    <div class="form-group">
-                        <label class="control-label" for="comments">Transcriber's Comments</label>
+                        <div class="form-group">
+                            <label class="control-label" for="initials">Initials</label>
+                            <input class="form-control" type="text" name="initials">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label" for="date">Date</label>
+                            <input class="form-control" type="text" name="date">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label" for="deCode">DE Code</label>
+                            <input class="form-control" type="text" name="deCode">
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="comments">
+                            <div class="form-group">
+                                <label class="control-label" for="comments">Transcriber's Comments</label>
                     <textarea class="form-control" rows="5" id="comments" name="comments"
                               placeholder="Add any comments you have"></textarea>
+                            </div>
+                        </div>
+                        <button class="btn btn-success btn-answer" value='Yes'>
+                            Submit your transcription
+                        </button>
                     </div>
                 </div>
-                <button class="btn btn-success btn-answer" value='Yes'>
-                    Submit your transcription
-                </button>
-            </div>
+            </form>
         </div>
-    </form>
+    </div>
     <!-- End of pdf section -->
     <!-- The data entry section using html table -->
     <div class="row">
@@ -254,6 +255,7 @@ task.
 	});
 
 
+
 </script>
 
 <!-- Step through modals -->
@@ -286,6 +288,7 @@ task.
 	}
 	showStep('next');
 	$("#modal").modal('show');
+
 
 
 
@@ -329,8 +332,10 @@ task.
 			var data = [[]];
 			var config = {
 				data : data,
-				minRows : 25,
-				minCols : 8,
+				minRows : 30,
+				height: 200,
+				width: '100%',
+				minCols : 12,
 				minSpareRows : 0,
 				minSpareCols : 0,
 				maxRows : 40,
@@ -374,6 +379,7 @@ task.
 	});
 	pybossa.run('montpelier');
 
+
 </script>
 
 <style type="text/css">
@@ -391,6 +397,7 @@ task.
     }
     #montpelierTable {
     width: 100%;
+    overflow: hidden;
     }
     .btn-answer {
     margin-top: 10px;
