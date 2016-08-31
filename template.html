@@ -163,17 +163,18 @@ task.
         <div class="modal-content">
             <!-- Modal header -->
             <div class="modal-header">
-                <h3>Gathering data from the Montpelier excavation logs</h3>
+                <h3>Gathering Data from Montpelier Catalogue Sheets!</h3>
             </div>
 
             <!-- Step 1 of the tutorial -->
             <div id="0" class="modal-body" style="display:none">
                 <h4>Information needed</h4>
                 <p>
-                    This project requires your help to capture the data held within the PDF scans. It is a very
+                    This project requires your help to capture the data held within the PDF scans. These scans are of the Faunal Material gathered during the 2016 Archaeology Field Season on the North Dwelling, a home of domestic slaves belonging to James Madison. These data are from current, ongoing excavations at the property!
+                    <\p>
+                    <p>It is a very
                     straightforward tabulation exercise. Montpelier would like your help to transcribe the following
-                    fields:
-                </p>
+                    fields:</p>
                 <ol>
                     <li>Site #</li>
                     <li>Page #</li>
@@ -197,40 +198,38 @@ task.
 
             <!-- Step 2 of the tutorial -->
             <div id="1" class="modal-body" style="display:none">
-                <p>
-                    On the catalogue forms, the " (or ditto mark) means that the information in this box is the same as
-                    the information from the box directly above the ".
-                </p>
-                <p>
-                    <strong>Please enter the number or descriptive information from above and not the ".</strong>
-                </p>
+            	<p>Please use the following guidelines when filling out the catalogue sheets:</p>
+            	
+            	<ol>
+            		<li>The information at the top of the catalogue sheet (Site #, Page #, Initials, Date, DE Code) should be data entered for every row on a sheet. Enter these first in the first row, highlight them, and then double click the small blue box in the right corner of the cell. All the rows below should populate. </li>
+            		<li>On the catalogue forms, entries may be marked to repeat on multiple rows with a line or arrow. Please enter the number in each row.</li>
+            		<li>You should enter an "Inv #" for every row. If there is no number listed, enter the most recent "Inv #". </li>
+            		<li>Despite having two columns on the catalogue sheet for "Species", only one should be filled and data entered. </li>
+            		<li>A dash (--) in a column means no data was entered. Leave this column blank.</li>
+            		<li>Use ALL CAPS FOR YOUR DATA ENTRY.</li>
+            	</ol>
+               <\p>
             </div>
 
             <!-- Step 2 of the tutorial -->
             <div id="2" class="modal-body" style="display:none">
                 <p>
-                    The catalogue entry will have either a FS or S number, not both. FS numbers were assigned to
-                    artifacts found in each level of excavation in the field. S numbers were assigned to bulk soil
-                    samples that were later wet screened.</p>
+                   <strong>Mistakes</strong>.</p>
                 <p>
-                    When artifacts were found during the wet screening a S number was assigned.
+                    In some cases, there may be a mistake you notice on the catalogue sheet or something you have difficulty reading. Please put "x" in the far right column (Problem?) and then notate the problem in the "Transcriber's Comments" below so we can address it!
                 </p>
+                <p>If you are having additional problems, please use the MicroPasts forums.</p>
             </div>
 
             <!-- Step 2 of the tutorial -->
             <div id="3" class="modal-body" style="display:none">
                 <p>
-                    <strong>NOTE:</strong> At the end of the field season all the artifacts with FS and S numbers were
-                    renumbered with a catalogue number. This new catalogue number does not appear on the field
-                    excavation
-                    forms. By digitally compiling the information on these site catalogue forms, we will be able to
-                    link the artifacts listed on the excavation forms with the appropriate catalogue numbers.
+                    <strong>Learn More!</strong> 
                 </p>
                 <p>
-                    Eventually, the excavation forms and field photographs from each level, as well as the photographs
-                    of the artifacts found in each level will be available online for people to perform research on the
-                    collection.
+                   You can learn more about the cataloguing process at Montpelier, and all of our excavation and lab guides, <a href="https://drive.google.com/folderview?id=0B02-NRxEZl47M3h4dXN2MVBJOU0&usp=sharing">by visiting this link</a>.
                 </p>
+                <p>To learn more about participating in more ways, such as coming on an excavation, <a href="http://montpelier.org/dig">visit us online!</a></p>
             </div>
             <!-- End of stepped modal body -->
 
@@ -343,7 +342,7 @@ task.
 				autoWrapCol : true,
 				autoColumnSize : true,
 				colHeaders : ['Inv #', 'Cat #', 'NCat Code', 'Material Code', 'Species', 'Bone type',
-				'Condition code', 'Artifact type', 'Number', 'Grams', 'Size grade', 'Notes'],
+				'Condition code', 'Artifact type', 'Number', 'Grams', 'Size grade', 'Notes', 'Site No', 'Page #', 'Initials', 'Date', 'DE Code', 'Problem?'],
 				contextMenu : ['row_below', 'remove_row', 'undo', 'redo'],
 				stretchH : 'all'
 			};
